@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Borsa Analiz</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Borsa Analiz Paneli</h1>
+    <form method="post">
+        <input type="text" name="hisse" placeholder="Yeni Hisse Ekle (örn: ASELS)">
+        <button type="submit">Ekle</button>
+    </form>
+
+    {% for analiz in analizler %}
+    <div class="card">
+        <h2>{{ analiz.hisse }}</h2>
+        <p><strong>RSI:</strong> {{ analiz.rsi }}</p>
+        <p><strong>MACD:</strong> {{ analiz.macd }}</p>
+        <div><strong>Kurum Verisi:</strong><br>{{ analiz.kurum | safe }}</div>
+    </div>
+    {% endfor %}
+</body>
+</html>
